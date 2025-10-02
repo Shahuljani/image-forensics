@@ -18,13 +18,15 @@ export default function App() {
       form.append("image", file);
 
       // Backend URL - change if hosted elsewhere
-      const resp = await fetch(
-        process.env.REACT_APP_API_URL || "http://localhost:5000/analyze",
-        {
-          method: "POST",
-          body: form,
-        }
-      );
+// Backend URL - change if hosted elsewhere
+const resp = await fetch(
+  process.env.REACT_APP_API_URL || "https://pixproof.onrender.com/analyze",
+  {
+    method: "POST",
+    body: form,
+  }
+);
+
       const data = await resp.json();
       setResult(data);
     } catch (e) {
